@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Project
 
 
 def index(request):
-    return HttpResponse("<h1>Welcome to My Work!</h1>")
+    projects = Project.objects.all()
+    context = {"Projects": projects}
+    return render(request, "mywork/index.html", context)

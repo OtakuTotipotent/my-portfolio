@@ -8,17 +8,31 @@ Projects | MyPortfolio
 
 {% block content %}
 <div class="container">
- <div class="hero-section">
- </div>
+    <div class="hero-section">
+    </div>
 
- <div class="work-done--section">
-  <h2 class="page-heading">
-   My Latest Work
-  </h2>
-  <p>Here are all the amazing things I've built.</p>
- </div>
+    <div class="work-done--section">
+        <h2 class="page-heading">
+            My Latest Work
+        </h2>
+        <p>Here are all the amazing things I've built.</p>
+        <div class="project-grid">
+            {% for project in projects %}
+            <div class="project-card">
+                {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% endif %}
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description|truncatewords:20 }}</p>
+                <a href="{{ project.project_url }}" target="_blank">View Live Project</a>
+            </div>
+            {% empty %}
+            <p class="msg-warning">No projects have been added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
 
- <div class="work-pending--section">
- </div>
+    <div class="work-pending--section">
+    </div>
 </div>
 {% endblock content %}
