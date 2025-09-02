@@ -1,13 +1,23 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Project
+from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect
 from .forms import ProjectForm
+from .models import Project
 
 
-def index(request):
-    projects = Project.objects.all()
-    return render(request, "mywork/index.html", {"projects": projects})
+class ProjectListView(ListView):
+    model = Project
+    context_object_name = "projects"
+    template_name = "mywork/index.html"
 
 
+class ProjectDetailView(DetailView):
+    model = Project
+    context_object_name = "project"
+    template_name = "mywork/project_detail.html"
+
+
+@login_required
 def add_project(request):
     if request.method == "POST":
         form = ProjectForm(request.POST, request.FILES)
@@ -17,8 +27,3 @@ def add_project(request):
     else:
         form = ProjectForm()
     return render(request, "mywork/add_project.html", {"form": form})
-
-
-def project_detail(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    return render(request, "mywork/project_detail.html", {"project": project})

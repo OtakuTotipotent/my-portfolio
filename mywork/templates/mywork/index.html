@@ -16,19 +16,7 @@ Here are all the amazing things I've built.
 {% block content %}
 <div class="work-done--section">
     {% for project in projects %}
-    <div class="project-card">
-        {% if project.image %}
-        <img src="{{ project.image.url }}" alt="{{ project.title }}">
-        {% endif %}
-        <h3>
-            <a href="{% url 'project-detail' project.pk %}" class="heading-link">
-                {{ project.title }}
-            </a>
-        </h3>
-        <p>{{ project.description|truncatewords:20 }}</p>
-        <a href="{{ project.project_url }}" target="_blank">View Live Project</a>
-    </div>
-
+    {% include 'includes/project_card.html' %}
     {% empty %}
     <p class="msg-warning">No projects have been added yet.</p>
     {% endfor %}

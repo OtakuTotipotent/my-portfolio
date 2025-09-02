@@ -1,8 +1,10 @@
 {
  "cSpell.words": [
-  "irbhd",
-  "mxhgn",
-  "mywork",
-  "workdone"
- ]
+    "endcompress",
+    "irbhd",
+    "mxhgn",
+    "mywork",
+    "workdone"
+],
+"postman.settings.dotenv-detection-notification-visibility": false
 }
