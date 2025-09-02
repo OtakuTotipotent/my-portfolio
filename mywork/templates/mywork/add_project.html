@@ -5,16 +5,17 @@
 Add Project | MyPortfolio
 {% endblock title %}
 
+{% block pageHeading %}
+Add a New Project | Only Admin 🐦‍🔥
+{% endblock pageHeading %}
+
+{% block pageIntro %}
+Add as many projects as possible 🔥
+{% endblock pageIntro %}
 
 {% block content %}
-<div class="hero-section">
-    <h2 class="page-heading">
-        Add a New Project
-    </h2>
-    <p>Add as many projects as possible.</p>
-</div>
-
 <form method="post" enctype="multipart/form-data">
+
     {% csrf_token %}
     {{ form.as_p }}
 

@@ -24,6 +24,16 @@
     </header>
 
     <main>
+        <div class="hero-section">
+            <h2 class="page-heading">
+                {% block pageHeading %}
+                {% endblock pageHeading %}
+            </h2>
+            <p>
+                {% block pageIntro %}
+                {% endblock pageIntro %}
+            </p>
+        </div>
         {% block content %}
         {% endblock content %}
     </main>

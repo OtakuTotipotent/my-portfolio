@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Project
 from .forms import ProjectForm
 
@@ -16,5 +16,9 @@ def add_project(request):
             return redirect("index")
     else:
         form = ProjectForm()
-    context = {"form": form}
-    return render(request, "mywork/add_project.html", context)
+    return render(request, "mywork/add_project.html", {"form": form})
+
+
+def project_detail(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    return render(request, "mywork/project_detail.html", {"project": project})

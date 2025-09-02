@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ project.title }} | MyPortfolio
+{% endblock title %}
+
+{% block pageHeading %}
+My One amazing piece of Art, my handmade!
+{% endblock pageHeading %}
+
+{% block pageIntro %}
+{{ project.description }}
+{% endblock pageIntro %}
+
+{% block content %}
+<article class="project-detail">
+    {% if project.image %}
+    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-detail-image">
+    {% endif %}
+
+    <h1> {{ project.title }} </h1>
+    <div class="project-links">
+        {% if project.project_url %}
+        <a href="{{ project.project_url }}" target="_blank" class="btn-action">View Live</a>
+        {% endif %}
+
+        {% if project.github_url %}
+        <a href="{{ project.github_ur }}" target="_blank" class="btn-action">Visit GitHub</a>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'index' %}" class="btn-link">Back to All Projects</a>
+</article>
+
+{% endblock content %}
