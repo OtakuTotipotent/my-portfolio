@@ -10,6 +10,7 @@
         Afnan Muhammad | MyPortfolio
         {% endblock title %}
     </title>
+    <link rel="icon" href="{% static 'images/favicons/favicon.png' %}" type="image/x-icon">
     {% compress css %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     {% endcompress %}
@@ -53,8 +54,7 @@
     </main>
 
     <footer>
-        <p>© 2025 My Portfolio</p>
-        <!-- make the year 2025 dynamic: every year automatically updates the year to the current year -->
+        <p>© {% now "Y" %} My Portfolio</p>
     </footer>
 
     <script src="{% static 'js/main.js' %}"></script>
