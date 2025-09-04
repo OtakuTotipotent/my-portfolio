@@ -5,6 +5,7 @@
     "mxhgn",
     "mywork",
     "staticfiles",
+    "truncatewords",
     "workdone"
 ],
 "postman.settings.dotenv-detection-notification-visibility": false

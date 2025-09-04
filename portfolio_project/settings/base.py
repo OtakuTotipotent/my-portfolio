@@ -15,7 +15,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "mywork",
-    "pages",
     "compressor",
 ]
 

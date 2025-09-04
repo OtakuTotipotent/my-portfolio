@@ -1,0 +1,67 @@
+my-portfolio
+ ┣ .vscode
+ ┃ ┗ settings.json
+ ┣ media
+ ┃ ┗ projects
+ ┣ mywork
+ ┃ ┣ templates
+ ┃ ┃ ┗ mywork
+ ┃ ┃ ┃ ┣ index.html
+ ┃ ┃ ┃ ┗ project_detail.html
+ ┃ ┣ admin.py
+ ┃ ┣ apps.py
+ ┃ ┣ forms.py
+ ┃ ┣ models.py
+ ┃ ┣ tests.py
+ ┃ ┣ urls.py
+ ┃ ┣ views.py
+ ┃ ┗ __init__.py
+ ┣ portfolio_project
+ ┃ ┣ settings
+ ┃ ┃ ┣ base.py
+ ┃ ┃ ┣ dev.py
+ ┃ ┃ ┣ production.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┣ asgi.py
+ ┃ ┣ db.sqlite3
+ ┃ ┣ urls.py
+ ┃ ┣ wsgi.py
+ ┃ ┗ __init__.py
+ ┣ static
+ ┃ ┣ css
+ ┃ ┃ ┗ styles.css
+ ┃ ┣ images
+ ┃ ┃ ┣ backgrounds
+ ┃ ┃ ┃ ┣ black_oreo.jpg
+ ┃ ┃ ┃ ┣ blue_laptop_tea.jpg
+ ┃ ┃ ┃ ┣ color_coding_tags.jpg
+ ┃ ┃ ┃ ┣ development_abstraction.jpg
+ ┃ ┃ ┃ ┣ green_coding.jpg
+ ┃ ┃ ┃ ┣ green_house.jpg
+ ┃ ┃ ┃ ┣ orange_compiler.jpg
+ ┃ ┃ ┃ ┣ pink_developer_setup.jpg
+ ┃ ┃ ┃ ┣ purple_developer_setup.jpg
+ ┃ ┃ ┃ ┣ sky_lab.jpg
+ ┃ ┃ ┃ ┗ universe_traveler.jpg
+ ┃ ┃ ┣ favicons
+ ┃ ┃ ┃ ┗ favicon.png
+ ┃ ┃ ┗ logos
+ ┃ ┃ ┃ ┗ logo.png
+ ┃ ┣ js
+ ┃ ┃ ┗ main.js
+ ┃ ┗ videos
+ ┃ ┃ ┣ car_carbon_cartoon.mp4
+ ┃ ┃ ┣ electric_chipset.mp4
+ ┃ ┃ ┣ live_coding.mp4
+ ┃ ┃ ┣ moving_man.mp4
+ ┃ ┃ ┣ moving_solar_system.mp4
+ ┃ ┃ ┣ power_hands.mp4
+ ┃ ┃ ┗ world_globe.mp4
+ ┣ templates
+ ┃ ┣ 404.html
+ ┃ ┗ base.html
+ ┣ .env
+ ┣ .gitignore
+ ┣ manage.py
+ ┣ requirements.txt
+ ┗ tree.txt

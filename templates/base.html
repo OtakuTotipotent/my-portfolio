@@ -1,5 +1,6 @@
 {% load static %}
 {% load compress %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,49 +13,53 @@
     </title>
     <link rel="icon" href="{% static 'images/favicons/favicon.png' %}" type="image/x-icon">
     {% compress css %}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% endcompress %}
 </head>
 
 <body>
     <header>
-        <h1 class="logo-text">
-            Afnan Muhammad
-        </h1>
+        <div class="logo">
+            <img src="{% static 'images/logos/logo.png' %}" alt="Logo">
+            <h1 class="logo-text">
+                Afnan Muhammad
+            </h1>
+        </div>
         <nav>
             <a class="btn-link" href="{% url 'index' %}">Home</a>
             <a class="btn-link" href="{% url 'index' %}">Work</a>
         </nav>
-        <div class="account">
-            {% if user.is_authenticated %}
-            <a class="btn-link" href="{% url 'add-project' %}">Add Project</a>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn-link">Logout</button>
-            </form>
-            {% else %}
-            <a class="btn-link" href="{% url 'login' %}">Login</a>
-            {% endif %}
-        </div>
     </header>
 
     <main>
         <div class="hero-section">
-            <h2 class="page-heading">
-                {% block pageHeading %}
-                {% endblock pageHeading %}
-            </h2>
-            <p>
-                {% block pageIntro %}
-                {% endblock pageIntro %}
-            </p>
+            <!-- Video background will be set by JavaScript -->
+            <video autoplay muted loop class="hero-video">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h2 class="page-heading">
+                    {% block pageHeading %}
+                    {% endblock pageHeading %}
+                </h2>
+                <p class="page-intro">
+                    {% block pageIntro %}
+                    {% endblock pageIntro %}
+                </p>
+            </div>
         </div>
-        {% block content %}
-        {% endblock content %}
+        <div class="content-section">
+            <!-- Background image will be set by JavaScript -->
+            <div class="content-wrapper">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>© {% now "Y" %} My Portfolio</p>
+        <p>©{% now "Y" %} My Portfolio</p>
     </footer>
 
     <script src="{% static 'js/main.js' %}"></script>
