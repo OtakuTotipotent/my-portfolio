@@ -17,7 +17,7 @@
     {% endcompress %}
 </head>
 
-<body>
+<body data-static-prefix="{% get_static_prefix %}">
     <header>
         <div class="logo">
             <img src="{% static 'images/logos/logo.png' %}" alt="Logo">
@@ -25,12 +25,13 @@
                 Afnan Muhammad
             </h1>
         </div>
-        <nav>
-            <a class="btn-link" href="{% url 'index' %}">Home</a>
-            <a class="btn-link" href="{% url 'index' %}">Work</a>
-            <a class="btn-link" href="{% url 'index' %}">Contact</a>
-            <a class="btn-link" href="{% url 'index' %}">Support</a>
-            <a class="btn-link" href="{% url 'index' %}">Order now</a>
+        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">☰</button>
+        <nav id="primaryNav" class="nav-links">
+            <a class="btn-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Home</a>
+            <a class="btn-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Work</a>
+            <a class="btn-link" href="#contact">Contact</a>
+            <a class="btn-link" href="#support">Support</a>
+            <a class="btn-link" href="#order">Order now</a>
         </nav>
     </header>
 

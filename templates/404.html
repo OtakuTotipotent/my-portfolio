@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Page not found | MyPortfolio{% endblock title %}
+
+{% block pageHeading %}
+Oops! 404 - Page Not Found
+{% endblock pageHeading %}
+
+{% block pageIntro %}
+The page you're looking for doesn't exist or may have been moved.
+{% endblock pageIntro %}
+
+{% block content %}
+<div class="fade-in" style="text-align:center;">
+    <p style="margin-bottom:20px;">Try going back to the homepage or exploring other sections.</p>
+    <a href="{% url 'index' %}" class="btn-link" style="display:inline-block;">Back to Home</a>
+    <div style="margin-top:30px;">
+        <img src="{% static 'images/backgrounds/green_house.jpg' %}" alt="Not found" style="max-width: 480px; width:100%; border-radius:12px; opacity:0.9;"/>
+    </div>
+{% endblock content %}

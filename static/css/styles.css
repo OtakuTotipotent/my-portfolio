@@ -66,6 +66,17 @@ header {
     cursor: default;
 }
 
+.menu-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: #4ade80;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 4px 12px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -88,6 +99,7 @@ nav {
     overflow: hidden;
     font-weight: 500;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 .btn-link::before {
@@ -112,9 +124,6 @@ nav {
     left: 100%;
 }
 
-/* -------------------------------------------------------------------- */
-
-/* Main content styles */
 main {
     flex: 1;
     position: relative;
@@ -129,7 +138,6 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
     overflow: hidden;
 }
 
@@ -231,8 +239,6 @@ footer {
 @media (max-width: 720px) {
     .hero-section {
         height: auto;
-        padding-top: 100px;
-        padding-bottom: 100px;
     }
 
     .hero-video {
@@ -246,6 +252,7 @@ footer {
 
     .page-heading {
         font-size: 2.5rem;
+        text-align: center;
     }
 
     .content-wrapper {
@@ -264,12 +271,36 @@ footer {
         font-size: 0.8rem;
     }
 
-    nav {
-        margin-right: 0;
-        font-size: .7rem;
+    .menu-toggle {
+        display: block;
     }
 
-    nav a {
-        padding: 0 .5rem;
+    nav {
+        margin-right: 0;
+        position: fixed;
+        top: -200%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        height: 50px;
+        background-color: rgba(6, 18, 38, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        justify-content: space-between;
+        padding: 3px;
+        transition: top 0.3s ease;
+        z-index: 1001;
+    }
+
+    nav.open {
+        top: 85px;
+    }
+
+    .btn-link {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        height: 100%;
     }
 }
