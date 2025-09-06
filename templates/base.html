@@ -1,5 +1,5 @@
+<!-- templates/base.html -->
 {% load static %}
-{% load compress %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +12,7 @@
         {% endblock title %}
     </title>
     <link rel="icon" href="{% static 'images/favicons/favicon.png' %}" type="image/x-icon">
-    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    {% endcompress %}
 </head>
 
 <body data-static-prefix="{% get_static_prefix %}">
@@ -25,12 +23,17 @@
                 Afnan Muhammad
             </h1>
         </div>
-        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">☰</button>
+
+        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="primaryNav"
+            aria-label="Toggle navigation">☰</button>
+
         <nav id="primaryNav" class="nav-links">
-            <a class="btn-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Home</a>
-            <a class="btn-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Work</a>
-            <a class="btn-link" href="#contact">Contact</a>
-            <a class="btn-link" href="#support">Support</a>
+            <a class="btn-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                href="{% url 'home' %}">Home</a>
+            <a class="btn-link {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
+                href="{% url 'work' %}">Work</a>
+            <a class="btn-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                href="{% url 'contact' %}">Contact</a>
             <a class="btn-link" href="#order">Order now</a>
         </nav>
     </header>

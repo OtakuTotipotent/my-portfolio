@@ -1,3 +1,4 @@
+# mywork/views.py file
 from django.views.generic import ListView, DetailView
 from .models import Project
 

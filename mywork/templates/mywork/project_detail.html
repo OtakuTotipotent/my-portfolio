@@ -1,3 +1,4 @@
+<!-- mywork/templates/mywork/project_detail.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -26,11 +27,11 @@ My One amazing piece of Art, my handmade!
         {% endif %}
 
         {% if project.github_url %}
-        <a href="{{ project.github_ur }}" target="_blank" class="btn-action">Visit GitHub</a>
+        <a href="{{ project.github_url }}" target="_blank" class="btn-action">Visit GitHub</a>
         {% endif %}
     </div>
 
-    <a href="{% url 'index' %}" class="btn-link">Back to All Projects</a>
+    <a href="{% url 'work' %}" class="btn-link">Back to All Projects</a>
 </article>
 
 {% endblock content %}

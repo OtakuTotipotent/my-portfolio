@@ -1,3 +1,4 @@
+# mywork/models.py file
 import os
 from django.db import models
 from django.urls import reverse
@@ -12,6 +13,24 @@ class Project(models.Model):
     github_url = models.URLField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     # workdone_date = models.DateTimeField()
+    technologies = models.CharField(
+        max_length=200,
+        blank=True,
+        help_text="Comma-separated list of technologies used",
+    )
+    featured = models.BooleanField(
+        default=False, help_text="Feature this project on the homepage"
+    )
+    category = models.CharField(
+        max_length=50,
+        blank=True,
+        choices=[
+            ("Python", "Django & Flask"),
+            ("Javascript", "React, MERN, NEXT.JS"),
+            ("Core", "Custom CSS, JS & HTML"),
+            ("design", "UI/UX Design"),
+        ],
+    )
 
     class Meta:
         ordering = ["-created_at"]

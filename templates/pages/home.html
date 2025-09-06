@@ -1,0 +1,71 @@
+<!-- templates/pages/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Home | MyPortfolio
+{% endblock title %}
+
+{% block pageHeading %}
+Welcome to My Portfolio
+{% endblock pageHeading %}
+
+{% block pageIntro %}
+<p>
+    Hello! I'm Afnan Muhammad, a passionate web developer and designer dedicated to crafting beautiful and functional
+    digital experiences. With a keen eye for detail and a commitment to excellence, I specialize in creating websites
+    that not only look stunning but also deliver seamless user experiences.
+</p>
+<p>
+    I build digital experiences that combine aesthetics with functionality. Explore my work and let's create something
+    amazing together.
+</p>
+{% endblock pageIntro %}
+
+{% block content %}
+<div class="fade-in">
+    <div class="about-content">
+        <div class="about-text">
+            <h2>My Journey</h2>
+            <p>
+                I'm a passionate full-stack developer with a focus on creating intuitive, user-centered digital
+                experiences. With a background in IT and a love for problem-solving, I bridge the gap between design and
+                technology.
+            </p>
+
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <p>HTML5, CSS3, JavaScript, React, Vue.js</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <p>Python, Django, Node.js, PostgreSQL, MySQL</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <p>Git, Docker, AWS, Figma, Adobe Creative Suite</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'images/profile.jpg' %}" alt="Profile Picture" class="profile-img">
+        </div>
+    </div>
+</div>
+<div class="fade-in">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+        {% for project in featured_projects %}
+        {% include 'includes/project_card.html' %}
+        {% empty %}
+        <p>No featured projects yet.</p>
+        {% endfor %}
+    </div>
+    <div class="text-center" style="margin-top: 2rem;">
+        <a href="{% url 'work' %}" class="btn-action">View All Projects</a>
+    </div>
+</div>
+{% endblock content %}

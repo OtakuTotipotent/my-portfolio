@@ -1,0 +1,60 @@
+<!-- templates/pages/ordernow.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Order Now | Afnan Muhammad
+{% endblock title %}
+
+{% block pageHeading %}
+Order Now
+{% endblock pageHeading %}
+
+{% block pageIntro %}
+<p>
+    Ready to elevate your online presence? Or need a fix in your existing website? If you are not sure about what you
+    need, just
+    <a href="{% url 'contact' %}">contact me</a> and we can discuss your requirements.
+</p>
+<p>
+    Fill out the form below to get started on your project. I look forward to working with you!
+</p>
+{% endblock pageIntro %}
+
+{% block content %}
+<div class="fade-in">
+    <h2 id="order">Order Form</h2>
+    <form action="https://your-order-processing-url.com" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="How should I call you?">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="What's your email address?">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Optional - Your phone number">
+        </div>
+        <div class="form-group">
+            <label for="project-type">Project Type</label>
+            <select id="project-type" name="project-type" required>
+                <option value="">Select a project type</option>
+                <option value="website-design">Website Design</option>
+                <option value="website-development">Website Development</option>
+                <option value="ecommerce">E-commerce Solution</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="project-details">Project Details</label>
+            <textarea id="project-details" name="project-details" rows="5" required
+                placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn-action">Submit Order</button>
+    </form>
+</div>
+{% endblock content %}

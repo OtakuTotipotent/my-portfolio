@@ -1,22 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
   const staticPrefixAttr = document.body.getAttribute('data-static-prefix') || '/static/';
-  // Function to set background based on page
   function setBackgrounds() {
-    // Get the current page name from the URL or other indicator
     const path = window.location.pathname;
     let videoFile, imageFile;
 
-    // Determine which background to use based on the page
-    if (path.includes('work') || path.includes('projects')) {
-      videoFile = `${staticPrefixAttr}videos/world_globe.mp4`;
-      imageFile = `${staticPrefixAttr}images/backgrounds/black_oreo.jpg`;
-    } else if (path.includes('about')) {
-      videoFile = `${staticPrefixAttr}videos/moving_man.mp4`;
-      imageFile = `${staticPrefixAttr}images/backgrounds/universe_traveler.jpg`;
-    } else { // Home page
-      videoFile = `${staticPrefixAttr}videos/world_globe.mp4`;
-      imageFile = `${staticPrefixAttr}images/backgrounds/sky_lab.jpg`;
+    const backgroundMap = {
+      '/': {
+        video: 'videos/world_globe.mp4',
+        image: 'images/backgrounds/sky_lab.jpg'
+      },
+      '/projects/': {
+        video: 'videos/live_coding.mp4',
+        image: 'images/backgrounds/black_oreo.jpg'
+      },
+      '/contact/': {
+        video: 'videos/moving_man.mp4',
+        image: 'images/backgrounds/universe_traveler.jpg'
+      },
+      '/ordernow/': {
+        video: 'videos/power_hands.mp4',
+        image: 'images/backgrounds/green_house.jpg'
+      },
+      // Add more mappings as needed
+    };
+
+    // Find the best matching path (prefer the longest matching key)
+    let bestKey = '/';
+    let selectedBackground = backgroundMap[bestKey];
+    for (const [key, value] of Object.entries(backgroundMap)) {
+      if (path.startsWith(key) && key.length >= bestKey.length) {
+        bestKey = key;
+        selectedBackground = value;
+      }
     }
+
+    // Set the files
+    videoFile = `${staticPrefixAttr}${selectedBackground.video}`;
+    imageFile = `${staticPrefixAttr}${selectedBackground.image}`;
 
     // Set the video background
     const video = document.querySelector('.hero-video');
@@ -61,34 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Header scroll effect
-  let lastScrollY = window.scrollY;
-  const header = document.querySelector('header');
-
-  window.addEventListener('scroll', () => {
-    if (!header) return;
-
-    if (window.scrollY > lastScrollY && window.scrollY > 200) {
-      header.style.transform = 'translateX(-50%) translateY(-100px)';
-    } else {
-      header.style.transform = 'translateX(-50%) translateY(0)';
-    }
-    lastScrollY = window.scrollY;
-
-    // Add blur effect when scrolled
-    if (window.scrollY > 50) {
-      header.style.backdropFilter = 'blur(15px)';
-      header.style.webkitBackdropFilter = 'blur(15px)';
-      header.style.background = 'rgba(255, 255, 255, 0.08)';
-    } else {
-      header.style.backdropFilter = 'blur(10px)';
-      header.style.webkitBackdropFilter = 'blur(10px)';
-      header.style.background = 'rgba(255, 255, 255, 0.1)';
-    }
-  });
-
   // Initialize backgrounds
   setBackgrounds();
+  window.addEventListener('pageshow', setBackgrounds);
 
   // Make hero content visible after a short delay
   const heroContent = document.querySelector('.hero-content');
